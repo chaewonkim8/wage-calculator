@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Payment Calculator</title>
   <meta name="viewport" content="width=device-width, initial-scale=0.7">
@@ -8,9 +9,10 @@
   <!-- Link your CSS file here -->
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <div class="container mt-5">
-    <h2>Long Service Payment Calculator</h2>
+    <h2>Payment Calculator</h2>
     <p>Calculate your long service payment</p>
     <form id="calculatorForm">
       <div class="form-group">
@@ -28,6 +30,19 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     <h2 class="mt-5">Results:</h2>
+    <p>Based on the labor laws of Hong Kong SAR</p>
+    <div class="form-group">
+      <label>Long Service Payment:</label>
+      <p id="result_long_service_payment" class="form-control-static"></p>
+    </div>
+    <div class="form-group">
+      <label>Reckonable Years of Service:</label>
+      <p id="result_reckonable_years" class="form-control-static"></p>
+    </div>
+    <div class="form-group">
+      <label>Days of Service:</label>
+      <p id="result_days_of_service" class="form-control-static"></p>
+    </div>
     <div class="form-group">
       <label>Start Date:</label>
       <p id="result_start_date" class="form-control-static"></p>
@@ -36,18 +51,7 @@
       <label>End Date:</label>
       <p id="result_end_date" class="form-control-static"></p>
     </div>
-    <div class="form-group">
-      <label>Days of Service:</label>
-      <p id="result_days_of_service" class="form-control-static"></p>
-    </div>
-    <div class="form-group">
-      <label>Reckonable Years of Service:</label>
-      <p id="result_reckonable_years" class="form-control-static"></p>
-    </div>
-    <div class="form-group">
-      <label>Long Service Payment:</label>
-      <p id="result_long_service_payment" class="form-control-static"></p>
-    </div>
+
   </div>
   <!-- Link Bootstrap and your JavaScript files here -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
