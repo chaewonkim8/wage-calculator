@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payment Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=0.7">
+  <!-- Link Bootstrap CSS file here -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- Link your CSS file here -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <h2>Long Service Payment Calculator</h2>
+    <p>Calculate your long service payment</p>
+    <form id="calculatorForm">
+      <div class="form-group">
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date" required class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="end_date">End Date:</label>
+        <input type="date" id="end_date" name="end_date" required class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="last_month_wage">Last Month's Wage:</label>
+        <input type="number" id="last_month_wage" name="last_month_wage" required class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <h2 class="mt-5">Results:</h2>
+    <div class="form-group">
+      <label>Start Date:</label>
+      <p id="result_start_date" class="form-control-static"></p>
+    </div>
+    <div class="form-group">
+      <label>End Date:</label>
+      <p id="result_end_date" class="form-control-static"></p>
+    </div>
+    <div class="form-group">
+      <label>Days of Service:</label>
+      <p id="result_days_of_service" class="form-control-static"></p>
+    </div>
+    <div class="form-group">
+      <label>Reckonable Years of Service:</label>
+      <p id="result_reckonable_years" class="form-control-static"></p>
+    </div>
+    <div class="form-group">
+      <label>Long Service Payment:</label>
+      <p id="result_long_service_payment" class="form-control-static"></p>
+    </div>
+  </div>
+  <!-- Link Bootstrap and your JavaScript files here -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
