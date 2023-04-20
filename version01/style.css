@@ -17,12 +17,25 @@ html {
 }
 
 body {
-	font-family: montserrat, arial, verdana;
+	font-family: arial;
 	max-width: 100%;
+	overflow-x: hidden;
 }
 
 /*cover page styles */
-/* Add padding to the image */
+
+.cover-image {
+    height: auto;
+    display: block;
+    margin: auto;
+    border-radius: 1rem !important;
+    padding: 20px !important;
+    box-sizing: border-box;
+    max-width: 95% ;
+    width:  auto;
+}
+
+/*
 .cover-image {
 	height: auto;
 	display: block;
@@ -32,11 +45,11 @@ body {
 	box-sizing: border-box;
 	max-width: 100%;
   }
-  
+*/  
 
 /*form styles*/
 #msform {
-	width: 400px;
+	width: 100%;
 	margin: 50px auto;
 	text-align: center;
 	position: relative;
@@ -80,6 +93,15 @@ p.text {
 	font-size: 12px;
 	text-align: left;
 	margin-bottom: 18px;
+}
+
+p.formula {
+	/* Your styles here */
+	font-weight:lighter;
+	font-size: 12px;
+	text-align: left;
+	margin-bottom: 18px;
+	line-height: 1.5;
 }
 
 /* emphasized result 
@@ -142,6 +164,7 @@ p.text {
 .fs-subtitle {
 	font-weight: normal;
 	font-size: 13px;
+	line-height: 1.4;
 	color: #666;
 	margin-bottom: 20px;
 }

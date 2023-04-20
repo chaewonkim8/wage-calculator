@@ -75,8 +75,27 @@ function current_fs_animation(current_fs, next_fs, callback) {
   );
 }
 
+//function to add the explanation when reckonableYears is 0
+function updateReckonableAndLongServiceMessages(reckonableYears, longServicePayment) {
+  var $reckonableYearsText = $("#result_reckonable_years");
+  var $longServicePaymentText = $("#result_long_service_payment");
 
-// Function to animate the form 
+  // Check if reckonable years is zero and update message accordingly
+  if (reckonableYears == 0) {
+    $reckonableYearsText.addClass("small-italic-message").text("N/A. Requires at least 5 years of work");
+  } else {
+    $reckonableYearsText.removeClass("small-italic-message");
+  }
+
+  // Check if long service payment is zero and update message accordingly
+  if (longServicePayment == 0) {
+    $longServicePaymentText.addClass("small-italic-message").text("N/A. Requires at least 5 years of work");
+  } else {
+    $longServicePaymentText.removeClass("small-italic-message");
+  }
+}
+
+// Function to update the results 
 function animateForm(current_fs, next_fs) {
   if (animating) return false;
   animating = true;
@@ -97,8 +116,10 @@ function animateForm(current_fs, next_fs) {
     $("#result_start_date").attr("data-before", "Start Date").text(startDate);
     $("#result_end_date").attr("data-before", "End Date").text(endDate);
     $("#result_days_of_service").attr("data-before", "Days of Service").text(daysOfService);
-    $("#result_reckonable_years").attr("data-before", "Reckonable Years of Service").text(reckonableYears.toFixed(2));
-    $("#result_long_service_payment").attr("data-before", "Long Service Payment").text(longServicePayment.toFixed(2));
+    $("#result_reckonable_years").attr("data-before", "Reckonable Years of Service").text("$" + parseInt(reckonableYears) + " HKD");
+    $("#result_long_service_payment").attr("data-before", "Long Service Payment").text("$" + parseInt(longServicePayment) + " HKD");
+
+    updateReckonableAndLongServiceMessages(reckonableYears, longServicePayment);
   }
 
   $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
