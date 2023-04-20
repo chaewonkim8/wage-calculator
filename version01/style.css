@@ -18,6 +18,7 @@ html {
 
 body {
 	font-family: montserrat, arial, verdana;
+	max-width: 100%;
 }
 
 /*cover page styles */
