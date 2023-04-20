@@ -20,6 +20,19 @@ body {
 	font-family: montserrat, arial, verdana;
 }
 
+/*cover page styles */
+/* Add padding to the image */
+.cover-image {
+	height: auto;
+	display: block;
+	margin: auto;
+	border-radius: 1rem !important;
+	padding: 20px !important;
+	box-sizing: border-box;
+	max-width: 100%;
+  }
+  
+
 /*form styles*/
 #msform {
 	width: 400px;
@@ -145,7 +158,7 @@ p.text {
 	color: white;
 	text-transform: uppercase;
 	font-size: 9px;
-	width: 33.33%;
+	width: 25%;
 	float: left;
 	position: relative;
 }

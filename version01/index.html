@@ -13,14 +13,24 @@
   <form id="msform">
     <!-- progressbar -->
     <ul id="progressbar">
-      <li class="active">Work Dates</li>
+      <li class = "active"> Intro</li>
+      <li>Work Dates</li>
       <li>Monthly Wage</li>
       <li>Results</li>
     </ul>
+    <!--front page fieldset-->
+    <fieldset class="front-page">
+      <img
+        src="https://softr-prod.imgix.net/applications/23625770-21f6-440f-8cf0-a419512ce950/assets/e1f59c17-951a-4e58-ad75-76e67001d905.bin"
+        alt="" class="cover-image">
+      <h2 class="fs-title">Worker's Calculator</h2>
+      <h3 class="fs-subtitle">Calculate your long service payment, <br>based on the labor laws of Hong Kong</h3>
+      <input type="button" name="next" class="next action-button" value="Start Now" />
+    </fieldset>
     <!-- fieldsets -->
     <fieldset class="first-fieldset">
       <h2 class="fs-title">Work Dates</h2>
-      <h3 class="fs-subtitle">Tell us your work duration. This is step 1.</h3>
+      <h3 class="fs-subtitle">Step 1: Tell us your work duration</h3>
       <!--<label for="start_date">Start Date:</label>-->
       <input type="date" id="start_date" name="start_date" required />
       <br />
@@ -29,16 +39,16 @@
       <br />
       <input type="button" name="next" class="next action-button" value="Next" />
     </fieldset>
-    
+
 
     <fieldset class="second-fieldset">
       <h2 class="fs-title">Monthly Wage</h2>
-      <h3 class="fs-subtitle">Tell us your monthly wage. This is step 2.</h3>
+      <h3 class="fs-subtitle">Step 2: Tell us your monthly wage</h3>
       <input type="number" id="monthly_wage" name="monthly_wage" placeholder="Monthly Wage" required />
       <input type="button" name="previous" class="previous action-button" value="Previous" />
       <input type="button" name="next" class="next action-button" value="Next" />
     </fieldset>
-    
+
     <fieldset>
       <h2 class="fs-title">Calculation Results</h2>
       <h3 class="fs-subtitle">Based on the labor laws of Hong Kong SAR</h3>
@@ -48,7 +58,7 @@
       <p class="text" id="result_reckonable_years"><strong>Reckonable Years of Service:</strong><br></p>
       <p class="text" id="result_long_service_payment"><strong>Long Service Payment:</strong><br></p>
     </fieldset>
-    
+
 
   </form>
 
