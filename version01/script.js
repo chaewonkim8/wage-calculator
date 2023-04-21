@@ -185,11 +185,25 @@ $(".restart").click(function() {
   }, 150);
 });
 
+
 //save button
-$(".save").click(function() {
-  setTimeout(function() {
-    alert("This feature is coming soon :)\nThanks for your patience!");
-  }, 150);
+
+$('.save').click(function() {
+  var element = document.querySelector('.result-page');
+  var opt = {
+    margin:       [1,60,60,60],
+    filename:     'calculation-of-payment.pdf',
+    html2canvas:  { scale: 4 },
+    pagebreak:    {after: ['form']}
+    /*pagebreak:    {mode: ['css', 'legacy']}
+    image:        { type: 'jpeg', quality: 1 },
+    jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait', precision: '16' }*/
+  };
+  // New Promise-based usage:
+  html2pdf().set(opt).from(element).save();
+
+/*  var element = document.querySelector('.result-page');
+  html2pdf().from(element).save();*/
 });
 
 

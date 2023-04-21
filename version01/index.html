@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Payment Calculator</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <!--include jspdf library-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+  <!-- Include the html2pdf.js script using CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 
 <body>
@@ -49,25 +53,23 @@
       <input type="button" name="next" class="next action-button" value="Next" />
     </fieldset>
 
-    <fieldset>
+    <fieldset class="result-page">
       <br>
       <h2 class="fs-title">Payment Calculation</h2>
       <h3 class="fs-subtitle">Based on the labor laws of Hong Kong</h3>
       <p class="text" id="result_long_service_payment"><strong>Long Service Payment:</strong><br></p>
       <br>
-      <!--<h2 class="fs-title">Details</h2>-->
       <h2 class="fs-title"><br>Detailed Information</h2>
+      <h2 class="fs-subtitle">Calculated based on your information</h2>
       <p class="text" id="result_start_date"><strong>Start Date:</strong><br></p>
       <p class="text" id="result_end_date"><strong>End Date:</strong><br></p>
       <p class="text" id="result_days_of_service"><strong>Days of Service:</strong><br></p>
       <p class="text" id="result_reckonable_years"><strong>Reckonable Years of Service:</strong><br></p>
       <p class="formula" id="result_formula_text">Long Service Payment Formula:<br>(MonthlyWage * 2/3) * reckonableYears</p>
-      <br>
+      <p class="placeholder" id="pdf_page_break"></p>
       <input type="button" name="restart" class="restart action-button" value="Start Again" />
       <input type="button" name="save" class="save action-button" value="Save as PDF" />
     </fieldset>
-
-
   </form>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
