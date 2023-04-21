@@ -82,17 +82,18 @@ function updateReckonableAndLongServiceMessages(reckonableYears, longServicePaym
 
   // Check if reckonable years is zero and update message accordingly
   if (reckonableYears == 0) {
-    $reckonableYearsText.addClass("small-italic-message").text("N/A. Requires at least 5 years of work");
+    $reckonableYearsText.addClass("small-italic-message").text("0 years\n*5 years of work is required to be eligible*");
   } else {
     $reckonableYearsText.removeClass("small-italic-message");
   }
 
   // Check if long service payment is zero and update message accordingly
   if (longServicePayment == 0) {
-    $longServicePaymentText.addClass("small-italic-message").text("N/A. Requires at least 5 years of work");
+    $longServicePaymentText.addClass("small-italic-message").text("$0 HKD\n\n*5 years of work is required to be eligible*");
   } else {
     $longServicePaymentText.removeClass("small-italic-message");
   }
+
 }
 
 // Function to update the results 
@@ -111,21 +112,21 @@ function animateForm(current_fs, next_fs) {
   var daysOfService = calculateDaysOfService(startDate, endDate);
   var reckonableYears = calculateReckonableYearsOfService(daysOfService);
   var longServicePayment = calculateLongServicePayment(reckonableYears, monthlyWage);
-  
+
   function updateResultFields() {
     $("#result_start_date").attr("data-before", "Start Date").text(startDate);
     $("#result_end_date").attr("data-before", "End Date").text(endDate);
-    $("#result_days_of_service").attr("data-before", "Days of Service").text(daysOfService);
-    $("#result_reckonable_years").attr("data-before", "Reckonable Years of Service").text("$" + parseInt(reckonableYears) + " HKD");
+    $("#result_days_of_service").attr("data-before", "Days of Service").text(daysOfService + " days");
+    $("#result_reckonable_years").attr("data-before", "Reckonable Years of Service").text(parseInt(reckonableYears) + " years");
     $("#result_long_service_payment").attr("data-before", "Long Service Payment").text("$" + parseInt(longServicePayment) + " HKD");
-
+  
     updateReckonableAndLongServiceMessages(reckonableYears, longServicePayment);
   }
-
+  
   $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 
-  next_fs.show();
   updateResultFields();
+  next_fs.show();
 
   current_fs_animation(current_fs, next_fs, function () {
     current_fs.hide();

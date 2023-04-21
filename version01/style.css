@@ -104,6 +104,12 @@ p.formula {
 	line-height: 1.5;
 }
 
+.small-italic-message {
+	white-space: pre-line;
+	font-style: italic;
+	color: gray;
+  }
+
 /* emphasized result 
 #result_long_service_payment {
 	text-decoration: underline;
@@ -136,7 +142,7 @@ p.formula {
 /*buttons*/
 #msform .action-button {
 	width: 100px;
-	background: #27AE60;
+	background: #9B59B6;
 	font-weight: bold;
 	color: white;
 	border: 0 none;
@@ -150,7 +156,7 @@ p.formula {
 
 #msform .action-button:hover,
 #msform .action-button:focus {
-	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #9B59B6;
 }
 
 /*headings*/
@@ -222,6 +228,6 @@ p.formula {
 /*The number of the step and the connector before it = green*/
 #progressbar li.active:before,
 #progressbar li.active:after {
-	background: #27AE60;
+	background: #9B59B6;
 	color: white;
 }
