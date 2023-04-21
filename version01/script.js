@@ -191,11 +191,12 @@ $(".restart").click(function() {
 $('.save').click(function() {
   var element = document.querySelector('.result-page');
   var opt = {
-    margin:       [1,1,1,1],
     filename:     'calculation-of-payment.pdf',
+    /*
+    margin:       [1,1,1,1],
     html2canvas:  { scale: 4 },
     pagebreak:    {after: ['form']}
-    /*pagebreak:    {mode: ['css', 'legacy']}
+    pagebreak:    {mode: ['css', 'legacy']}
     image:        { type: 'jpeg', quality: 1 },
     jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait', precision: '16' }*/
   };
