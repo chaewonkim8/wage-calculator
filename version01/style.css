@@ -106,8 +106,8 @@ p.formula {
 
 .small-italic-message {
 	white-space: pre-line;
-	font-style: italic;
-	color: gray;
+	/*font-style: italic;
+	color: gray;*/
   }
 
 /* emphasized result 
