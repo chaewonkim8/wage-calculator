@@ -178,3 +178,18 @@ $(".previous").click(function () {
   });
 });
 
+//restart button
+$(".restart").click(function() {
+  setTimeout(function() {
+    location.reload();
+  }, 150);
+});
+
+//save button
+$(".save").click(function() {
+  setTimeout(function() {
+    alert("This feature is coming soon :) Thanks for your patience!");
+  }, 150);
+});
+
+
