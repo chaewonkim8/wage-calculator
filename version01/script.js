@@ -191,7 +191,7 @@ $(".restart").click(function() {
 $('.save').click(function() {
   var element = document.querySelector('.result-page');
   var opt = {
-    margin:       [1,60,60,60],
+    margin:       [1,1,1,1],
     filename:     'calculation-of-payment.pdf',
     html2canvas:  { scale: 4 },
     pagebreak:    {after: ['form']}
