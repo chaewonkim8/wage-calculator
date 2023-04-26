@@ -58,7 +58,7 @@ body {
 #msform fieldset {
 	background: white;
 	border: 0 none;
-	border-radius: 3px;
+	border-radius: 9px;
 	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
 	padding: 20px 30px;
 	box-sizing: border-box;
@@ -218,7 +218,7 @@ fieldset.front-page {
 
 /*headings*/
 .fs-title {
-	font-size: 15px;
+	font-size: 20px;
 	/*text-transform: uppercase;*/
 	color: #2C3E50;
 	margin-bottom: 10px;
@@ -226,7 +226,7 @@ fieldset.front-page {
 
 .fs-subtitle {
 	font-weight: normal;
-	font-size: 13px;
+	font-size: 14px;
 	line-height: 1.4;
 	color: #666;
 	margin-bottom: 20px;
@@ -234,7 +234,7 @@ fieldset.front-page {
 
 /*progressbar*/
 #progressbar {
-	margin-bottom: 30px;
+	margin-bottom: 38px;
 	overflow: hidden;
 	/*CSS counters to number the steps*/
 	counter-reset: step;
