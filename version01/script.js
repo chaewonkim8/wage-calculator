@@ -87,14 +87,14 @@ function updateReckonableAndLongServiceMessages(reckonableYears, longServicePaym
 
   // Check if reckonable years is zero and update message accordingly
   if (reckonableYears == 0) {
-    $reckonableYearsText.addClass("small-italic-message").text("*5 years of work is required to be eligible*");
+    $reckonableYearsText.addClass("small-italic-message").text("5 years of work is required to be eligible!");
   } else {
     $reckonableYearsText.removeClass("small-italic-message");
   }
 
   // Check if long service payment is zero and update message accordingly
   if (longServicePayment == 0) {
-    $longServicePaymentText.addClass("small-italic-message").text("*5 years of work is required to be eligible*");
+    $longServicePaymentText.addClass("small-italic-message").text("5 years of work is required to be eligible!");
   } else {
     $longServicePaymentText.removeClass("small-italic-message");
   }
