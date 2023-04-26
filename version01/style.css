@@ -28,7 +28,7 @@ body {
 	height: auto;
 	display: block;
 	margin: auto;
-	border-radius: 1rem !important;
+	border-radius: 25px !important;
 	padding: 20px !important;
 	box-sizing: border-box;
 	max-width: 95%;
