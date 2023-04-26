@@ -10,8 +10,13 @@ function validateInput(current_fs) {
   var endDate = $("#end_date").val();
   var monthlyWage = $("#monthly_wage").val();
 
+  console.log($("#start_date").val());
+  console.log($("#end_date").val());
+
   if (current_fs.hasClass("first-fieldset") && (!startDate || !endDate)) {
     alert("Please enter a valid start and end date.");
+    /*console.log(startDate);
+    console.log(endDate);*/
     return false;
   }
 

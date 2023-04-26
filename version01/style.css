@@ -25,14 +25,14 @@ body {
 /*cover page styles */
 
 .cover-image {
-    height: auto;
-    display: block;
-    margin: auto;
-    border-radius: 1rem !important;
-    padding: 20px !important;
-    box-sizing: border-box;
-    max-width: 95% ;
-    width:  auto;
+	height: auto;
+	display: block;
+	margin: auto;
+	border-radius: 1rem !important;
+	padding: 20px !important;
+	box-sizing: border-box;
+	max-width: 95%;
+	width: auto;
 }
 
 /*
@@ -45,13 +45,13 @@ body {
 	box-sizing: border-box;
 	max-width: 100%;
   }
-*/  
+*/
 
 /*form styles*/
 #msform {
 	width: 100%;
 	margin: 50px auto;
-	text-align: center;
+	/*text-align: center;*/
 	position: relative;
 }
 
@@ -70,15 +70,30 @@ body {
 }
 
 /*first fielset style */
-label {
-	text-align: left;
-  }
-  
+#start_date_label {
+	/*display: inline-block;*/
+	/*width: 80px;*/
+	text-align: left !important;
+	font-family: arial;
+	color: gray;
+	font-size: 11 px;
+	margin-bottom: 5px;
+}
+
+#end_date_label {
+	/*display: inline-block;*/
+	/*width: 80px;*/
+	text-align: left !important;
+	font-family: arial;
+	color: gray;
+	font-size: 11 px;
+	margin-bottom: 5px;
+}
 
 /* result page style */
 .text:before {
 	text-decoration: none;
-	font-weight:bolder;
+	font-weight: bolder;
 	content: attr(data-before) "\00a0:\00a0";
 	/* \00a0 represents a non-breaking space */
 	display: block;
@@ -89,7 +104,7 @@ label {
 
 p.text {
 	/* Your styles here */
-	font-weight:lighter;
+	font-weight: lighter;
 	font-size: 12px;
 	text-align: left;
 	margin-bottom: 18px;
@@ -97,7 +112,7 @@ p.text {
 
 p.formula {
 	/* Your styles here */
-	font-weight:lighter;
+	font-weight: lighter;
 	font-size: 12px;
 	text-align: left;
 	margin-bottom: 18px;
@@ -108,7 +123,7 @@ p.formula {
 	white-space: pre-line;
 	/*font-style: italic;
 	color: gray;*/
-  }
+}
 
 /* emphasized result 
 #result_long_service_payment {
@@ -140,18 +155,38 @@ p.formula {
 }
 
 /*buttons*/
+
+/*
+#msform .action-button {
+    width: 100px;
+    background: #9B59B6;
+    color: white;
+    border: 0 none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 12px 24px !important;
+    margin: 10px 5px;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center !important;
+}*/
+
+
 #msform .action-button {
 	width: 100px;
 	background: #9B59B6;
 	font-weight: bold;
-	color: white;
+	color: #F5F5F5;
 	border: 0 none;
-	border-radius: 1px;
+	border-radius: 6px;
 	cursor: pointer;
-	padding: 10px;
+	padding: 12px;
 	margin: 10px 5px;
 	text-decoration: none;
-	font-size: 14px;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
 }
 
 #msform .action-button:hover,
@@ -159,10 +194,32 @@ p.formula {
 	box-shadow: 0 0 0 2px white, 0 0 0 3px #9B59B6;
 }
 
+/*front-page style*/
+fieldset.front-page h2.fs-title {
+	font-size: 20px;
+	color: #333333;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+fieldset.front-page h3.fs-subtitle {
+	font-size: 13px;
+	margin-bottom: 20px;
+	color: #333333;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+	text-align: center;
+}
+
+fieldset.front-page {
+	text-align: center;
+}
+
 /*headings*/
 .fs-title {
 	font-size: 15px;
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 	color: #2C3E50;
 	margin-bottom: 10px;
 }
@@ -181,12 +238,13 @@ p.formula {
 	overflow: hidden;
 	/*CSS counters to number the steps*/
 	counter-reset: step;
+	text-align: center;
 }
 
 #progressbar li {
 	list-style-type: none;
 	color: white;
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 	font-size: 9px;
 	width: 25%;
 	float: left;
