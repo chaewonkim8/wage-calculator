@@ -197,15 +197,15 @@ p.formula {
 /*front-page style*/
 fieldset.front-page h2.fs-title {
 	font-size: 20px;
-	color: #333333;
+	color: #2C3E50;
 	margin-bottom: 10px;
 	text-align: center;
 }
 
 fieldset.front-page h3.fs-subtitle {
 	font-size: 13px;
-	margin-bottom: 20px;
-	color: #333333;
+	margin-bottom: 18px;
+	color: #666;
 	overflow: hidden;
 	/*CSS counters to number the steps*/
 	counter-reset: step;

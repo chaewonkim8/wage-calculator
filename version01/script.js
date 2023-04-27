@@ -43,9 +43,22 @@ function calculateDaysOfService(startDate, endDate) {
 function calculateReckonableYearsOfService(daysOfService) {
   var reckonableYears = 0;
   if (daysOfService / 365 >= 5) {
-    reckonableYears = daysOfService / 365;
+    reckonableYears = Math.floor(daysOfService / 365);
   }
   return reckonableYears;
+}
+
+function calculatePaymentIncompleteYear(daysOfService, reckonableYears, lastMonthWage) {
+  console.log("daysofservice:"+daysOfService);
+  var daysInIncompleteYear = 0;
+  var paymentIncompleteYear = 0;
+  daysInIncompleteYear = daysOfService - (365 * reckonableYears);
+  if (reckonableYears > 0) {
+    paymentIncompleteYear = 2/3 * lastMonthWage * daysInIncompleteYear / 365;
+  }
+  console.log("daysInIncompleteYear:"+ daysInIncompleteYear);
+  console.log("paymentIncompleteYear:"+ paymentIncompleteYear);
+  return paymentIncompleteYear;
 }
 
 // Function to calculate long service payment
@@ -55,6 +68,14 @@ function calculateLongServicePayment(reckonableYears, lastMonthWage) {
     longServicePayment = (lastMonthWage * 2 / 3) * reckonableYears;
   }
   return longServicePayment;
+}
+
+function calculateTotalPayment(daysOfService, reckonableYears, lastMonthWage) {
+  var TotalPayment = 0;
+  var paymentIncompleteYear = calculatePaymentIncompleteYear(daysOfService, reckonableYears, lastMonthWage);
+  var longServicePayment = calculateLongServicePayment(reckonableYears, lastMonthWage);
+  TotalPayment = paymentIncompleteYear + longServicePayment;
+  return(TotalPayment);
 }
 
 // Function for the animation of the current fieldset
@@ -116,7 +137,14 @@ function animateForm(current_fs, next_fs) {
 
   var daysOfService = calculateDaysOfService(startDate, endDate);
   var reckonableYears = calculateReckonableYearsOfService(daysOfService);
+  console.log("reckonableYears:" + reckonableYears);
   var longServicePayment = calculateLongServicePayment(reckonableYears, monthlyWage);
+ /* var paymentIncompleteYear = calculatePaymentIncompleteYear(daysOfService, reckonableYears, monthlyWage)*/
+  var TotalPayment = calculateTotalPayment(daysOfService, reckonableYears, monthlyWage);
+
+  console.log("TotalPayment: " + TotalPayment);
+ /* console.log("paymentIncompleteYear: " + paymentIncompleteYear);*/
+  console.log("longServicePayment:" + longServicePayment);
 
   function updateResultFields() {
     $("#result_start_date").attr("data-before", "Start Date").text(startDate);
@@ -124,6 +152,7 @@ function animateForm(current_fs, next_fs) {
     $("#result_days_of_service").attr("data-before", "Days of Service").text(daysOfService + " days");
     $("#result_reckonable_years").attr("data-before", "Reckonable Years of Service").text(parseInt(reckonableYears) + " years");
     $("#result_long_service_payment").attr("data-before", "Long Service Payment").text("$" + parseInt(longServicePayment) + " HKD");
+    $("#result_total_payment").attr("data-before", "Total Payment").text("$" + parseInt(TotalPayment) + " HKD");
   
     updateReckonableAndLongServiceMessages(reckonableYears, longServicePayment);
   }
