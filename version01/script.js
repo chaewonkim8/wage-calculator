@@ -117,7 +117,7 @@ function updateReckonableAndLongServiceMessages(reckonableYears, longServicePaym
   // Check if reckonable years is zero and update message accordingly
   if (reckonableYears == 0) {
     $reckonableYearsText.addClass("small-italic-message").text("Not Eligibile");
-    $incompleteYearText.addClass("small-italic-message").text("Not Eligibileg");
+    $incompleteYearText.addClass("small-italic-message").text("Not Eligibile");
   } else {
     $reckonableYearsText.removeClass("small-italic-message");
     $incompleteYearText.removeClass("small-italic-message");
