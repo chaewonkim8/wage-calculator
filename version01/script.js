@@ -241,22 +241,18 @@ $(".restart").click(function() {
 //save button
 
 $('.save').click(function() {
-  var element = document.querySelector('.result-page');
-  var opt = {
-    filename:     'calculation-of-payment.pdf',
-    /*
-    margin:       [1,1,1,1],
-    html2canvas:  { scale: 4 },
-    pagebreak:    {after: ['form']}
-    pagebreak:    {mode: ['css', 'legacy']}
-    image:        { type: 'jpeg', quality: 1 },
-    jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait', precision: '16' }*/
-  };
-  // New Promise-based usage:
-  html2pdf().set(opt).from(element).save();
-
-/*  var element = document.querySelector('.result-page');
-  html2pdf().from(element).save();*/
+  alert("This feature is coming soon! Thanks for your patience :) ")
+  
+  // var element = document.querySelector('.result-page');
+  // var opt = {
+  //   filename:     'calculation-of-payment.pdf',
+  //   jspdf: { orientation: 'portrait', format: [400.00, 2800.00]}
+  //   /*
+  //   margin:       [1,1,1,1],
+  //   pagebreak:    {after: ['form']}
+  //   */
+  // };
+  // html2pdf().set(opt).from(element).save();*/
 });
 
 
