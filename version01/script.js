@@ -147,11 +147,12 @@ function animateForm(current_fs, next_fs) {
   console.log("longServicePayment:" + longServicePayment);
 
   function updateResultFields() {
+    $("#result_monthly_wage").attr("data-before", "Last Month's Wage").text("$" + parseInt(monthlyWage) + " HKD");
     $("#result_start_date").attr("data-before", "Start Date").text(startDate);
     $("#result_end_date").attr("data-before", "End Date").text(endDate);
     $("#result_days_of_service").attr("data-before", "Days of Service").text(daysOfService + " days");
     $("#result_reckonable_years").attr("data-before", "Reckonable Years of Service").text(parseInt(reckonableYears) + " years");
-    $("#result_long_service_payment").attr("data-before", "Long Service Payment").text("$" + parseInt(longServicePayment) + " HKD");
+    $("#result_long_service_payment").attr("data-before", "Payment for Reckonable Years").text("$" + parseInt(longServicePayment) + " HKD");
     $("#result_total_payment").attr("data-before", "Total Payment").text("$" + parseInt(TotalPayment) + " HKD");
   
     updateReckonableAndLongServiceMessages(reckonableYears, longServicePayment);
