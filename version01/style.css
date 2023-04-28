@@ -120,10 +120,13 @@ p.text {
 p.formula {
 	/* Your styles here */
 	font-weight: lighter;
+	font-style: italic;
 	font-size: 12px;
 	text-align: left;
-	margin-bottom: 18px;
-	line-height: 1.5;
+	margin-top: 0;
+	margin-bottom: 30px;
+	line-height: 0;
+	color:#666
 }
 
 .small-italic-message {

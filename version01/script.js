@@ -117,7 +117,7 @@ function updateReckonableAndLongServiceMessages(reckonableYears, longServicePaym
   // Check if reckonable years is zero and update message accordingly
   if (reckonableYears == 0) {
     $reckonableYearsText.addClass("small-italic-message").text("Not Eligibile");
-    $incompleteYearText.addClass("small-italic-message").text("Not Eligibile");
+    $incompleteYearText.addClass("small-italic-message").text("Not Eligibileg");
   } else {
     $reckonableYearsText.removeClass("small-italic-message");
     $incompleteYearText.removeClass("small-italic-message");
@@ -166,7 +166,9 @@ function animateForm(current_fs, next_fs) {
     $("#result_reckonable_years").attr("data-before", "Reckonable Years of Service").text(parseInt(reckonableYears) + " years");
     $("#result_days_incomplete_year").attr("data-before", "Days in Incomplete Year").text(parseInt(daysInIncompleteYear) + " days");
     $("#result_long_service_payment").attr("data-before", "Payment for Reckonable Years").text("$" + parseInt(longServicePayment) + " HKD");
+    $("#formula_payment_reckonable_years").attr("data-before", "").text(parseInt(longServicePayment) + " = 2/3 * " + parseInt(monthlyWage) + " * " + parseInt(reckonableYears));
     $("#result_payment_incomplete_year").attr("data-before", "Payment for Incomplete Year").text("$" + parseInt(paymentIncompleteYear) + " HKD");
+    $("#formula_payment_incomplete_year").attr("data-before", "").text(parseInt(paymentIncompleteYear) + " = 2/3 * " + parseInt(daysInIncompleteYear) + " / 365");
     $("#result_total_payment").attr("data-before", "Total Payment").text("$" + parseInt(TotalPayment) + " HKD");
     $("#result_total_payment_detail").attr("data-before", "Total Payment").text("$" + parseInt(TotalPayment) + " HKD");
   
