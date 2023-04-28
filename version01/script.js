@@ -48,6 +48,13 @@ function calculateReckonableYearsOfService(daysOfService) {
   return reckonableYears;
 }
 
+//function to calculate the days in incomlete year
+function calculateDaysInIncompleteYear(daysOfService, reckonableYears){
+  var daysInIncompleteYear = 0;
+  daysInIncompleteYear = daysOfService - (365 * reckonableYears);
+  return daysInIncompleteYear
+}
+
 function calculatePaymentIncompleteYear(daysOfService, reckonableYears, lastMonthWage) {
   console.log("daysofservice:"+daysOfService);
   var daysInIncompleteYear = 0;
@@ -104,18 +111,21 @@ function current_fs_animation(current_fs, next_fs, callback) {
 //function to add the explanation when reckonableYears is 0
 function updateReckonableAndLongServiceMessages(reckonableYears, longServicePayment) {
   var $reckonableYearsText = $("#result_reckonable_years");
+  var $incompleteYearText = $("#result_days_incomplete_year");
   var $longServicePaymentText = $("#result_long_service_payment");
 
   // Check if reckonable years is zero and update message accordingly
   if (reckonableYears == 0) {
-    $reckonableYearsText.addClass("small-italic-message").text("5 years of work is required to be eligible!");
+    $reckonableYearsText.addClass("small-italic-message").text("Not Eligibile");
+    $incompleteYearText.addClass("small-italic-message").text("Not Eligibile");
   } else {
     $reckonableYearsText.removeClass("small-italic-message");
+    $incompleteYearText.removeClass("small-italic-message");
   }
 
   // Check if long service payment is zero and update message accordingly
   if (longServicePayment == 0) {
-    $longServicePaymentText.addClass("small-italic-message").text("5 years of work is required to be eligible!");
+    $longServicePaymentText.addClass("small-italic-message").text("$0 HKD");
   } else {
     $longServicePaymentText.removeClass("small-italic-message");
   }
@@ -138,8 +148,10 @@ function animateForm(current_fs, next_fs) {
   var daysOfService = calculateDaysOfService(startDate, endDate);
   var reckonableYears = calculateReckonableYearsOfService(daysOfService);
   console.log("reckonableYears:" + reckonableYears);
+  var daysInIncompleteYear = calculateDaysInIncompleteYear(daysOfService, reckonableYears);
+  console.log("daysInIncompleteYear:" + daysInIncompleteYear);
   var longServicePayment = calculateLongServicePayment(reckonableYears, monthlyWage);
- /* var paymentIncompleteYear = calculatePaymentIncompleteYear(daysOfService, reckonableYears, monthlyWage)*/
+  var paymentIncompleteYear = calculatePaymentIncompleteYear(daysOfService, reckonableYears, monthlyWage)
   var TotalPayment = calculateTotalPayment(daysOfService, reckonableYears, monthlyWage);
 
   console.log("TotalPayment: " + TotalPayment);
@@ -152,8 +164,11 @@ function animateForm(current_fs, next_fs) {
     $("#result_end_date").attr("data-before", "End Date").text(endDate);
     $("#result_days_of_service").attr("data-before", "Days of Service").text(daysOfService + " days");
     $("#result_reckonable_years").attr("data-before", "Reckonable Years of Service").text(parseInt(reckonableYears) + " years");
+    $("#result_days_incomplete_year").attr("data-before", "Days in Incomplete Year").text(parseInt(daysInIncompleteYear) + " days");
     $("#result_long_service_payment").attr("data-before", "Payment for Reckonable Years").text("$" + parseInt(longServicePayment) + " HKD");
+    $("#result_payment_incomplete_year").attr("data-before", "Payment for Incomplete Year").text("$" + parseInt(paymentIncompleteYear) + " HKD");
     $("#result_total_payment").attr("data-before", "Total Payment").text("$" + parseInt(TotalPayment) + " HKD");
+    $("#result_total_payment_detail").attr("data-before", "Total Payment").text("$" + parseInt(TotalPayment) + " HKD");
   
     updateReckonableAndLongServiceMessages(reckonableYears, longServicePayment);
   }
