@@ -241,18 +241,108 @@ $(".restart").click(function() {
 //save button
 
 $('.save').click(function() {
-  alert("This feature is coming soon! Thanks for your patience :) ")
+  var element = document.getElementById('result');
+  var opt = {
+    filename:     'calculation-of-payment.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 4 },
+    jsPDF:        { 
+      unit: 'px', 
+      format: [800, 1100], 
+      orientation: 'portrait',
+      pagebreak: { mode: 'avoid-all', before: '.break' }
+    }
+  };
+  html2pdf().from(element).set(opt).save();
+  html2canvas(element).then(function(canvas) {
+    var image = new Image();
+    image.src = canvas.toDataURL();
+    document.body.appendChild(image);
+    console.log('Canvas generated successfully!');
+  }).catch(function(error) {
+    console.log('Error generating canvas: ' + error);
+  });
+});
+
+/* 생성된 canvas를 html body에 img 형태로 append까지 해주는 테스트 코드 */
+$('.save').click(function() {
+  var element = document.getElementById('result');
+  var opt = {
+    filename:     'calculation-of-payment.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 4 },
+    jsPDF:        { 
+      unit: 'px', 
+      format: [1200, 9900], 
+      orientation: 'portrait',
+      pagebreak: { mode: 'avoid-all', before: '.break' }
+    }
+  };
   
-  // var element = document.querySelector('.result-page');
-  // var opt = {
-  //   filename:     'calculation-of-payment.pdf',
-  //   jspdf: { orientation: 'portrait', format: [400.00, 2800.00]}
-  //   /*
-  //   margin:       [1,1,1,1],
-  //   pagebreak:    {after: ['form']}
-  //   */
-  // };
-  // html2pdf().set(opt).from(element).save();*/
+  html2pdf().from(element).set(opt).save();
+  
+  html2canvas(element).then(function(canvas) {
+    if (canvas) {
+      console.log('Canvas generated successfully!');
+      var imgData = canvas.toDataURL('image/png');
+      var img = document.createElement('img');
+      img.src = imgData;
+      document.body.appendChild(img);
+    } else {
+      console.log('Error generating canvas!');
+    }
+  });
 });
 
 
+
+// $('.save').click(function() {
+//   var element = document.getElementById('result');
+//   var opt = {
+//     filename:     'calculation-of-payment.pdf',
+//     image:        { type: 'jpeg', quality: 0.98 },
+//     html2canvas:  { scale: 4 },
+//     jsPDF:        { 
+//       unit: 'px', 
+//       format: [800, 1100], 
+//       orientation: 'portrait',
+//       pagebreak: { mode: 'avoid-all', before: '.break' }
+//       /*pagebreak 옵션을 주려고 추가한 라인인데, 왜 작동을 안하는것 같을까?*/
+//     }
+//   };
+//   html2pdf().from(element).set(opt).save();
+// });
+
+/* 여러 옵션을 주는 방법도 고려해봤음. 출시를 위해 coming soon alert띄우는것도 구현해봄*/
+// $('.save').click(function() {
+//   // alert("This feature is coming soon! Thanks for your patience :) ")
+  
+//   var element = document.querySelector('.result-page');
+//   var opt = {
+//     filename:     'calculation-of-payment.pdf',
+//     jspdf: { orientation: 'portrait', format: [400.00, 2800.00]}
+//     /*
+//     margin:       [1,1,1,1],
+//     pagebreak:    {after: ['form']}
+//     */
+//   };
+//   html2pdf().set(opt).from(element).save();
+// });
+
+/* 모든 body element를 저장하는 방법도 시도해봤는데 안됨 */
+// $('.save').click(function() {
+//   var doc = new jsPDF();
+//   doc.addHTML($('body'), function() {
+//     doc.save('payment-calculation.pdf');
+//   });
+// });
+
+/*인터넷에서 찾은 아무 코드나 붙여서 실행해보기. 음 이건 아닌듯https://github.com/parallax/jsPDF/issues/695 */
+// $(document).on("click", ".save", function() {
+//   html2canvas(document.body).then(function(canvas) {
+//       var imgData = canvas.toDataURL("image/jpeg", 1.0);
+//       var pdf = new jsPDF('p', 'px', [800, 1100]);
+//       pdf.addImage(imgData, 'JPEG', 0, 0, 800, 1100);
+//       pdf.save("calculation-of-payment.pdf");
+//   });
+// });
