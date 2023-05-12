@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>html2pdf.js Example</title>
+  <!-- Include the html2pdf.js script using CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+  <div>
+    <h1>Hello, World!</h1>
+    <p>This is a sample HTML content that will be converted to PDF.</p>
+  </div>
+  <button onclick="generatePDF()">Generate PDF</button>
+
+  <script>
+    function generatePDF() {
+      var element = document.querySelector('div'); // select the element to be printed
+      html2pdf().from(element).save(); // generate the PDF and prompt the user to save it
+    }
+  </script>
+</body>
+</html>

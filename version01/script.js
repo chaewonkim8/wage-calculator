@@ -248,12 +248,12 @@ $('.save').click(function() {
     html2canvas:  { scale: 4 },
     jsPDF:        { 
       unit: 'px', 
-      format: [800, 1100], 
+      format: [1100, 9900], 
       orientation: 'portrait',
       pagebreak: { mode: 'avoid-all', before: '.break' }
     }
   };
-  html2pdf().from(element).set(opt).save();
+  html2pdf().set(opt).from(element).save();
   html2canvas(element).then(function(canvas) {
     var image = new Image();
     image.src = canvas.toDataURL();
@@ -265,34 +265,34 @@ $('.save').click(function() {
 });
 
 /* 생성된 canvas를 html body에 img 형태로 append까지 해주는 테스트 코드 */
-$('.save').click(function() {
-  var element = document.getElementById('result');
-  var opt = {
-    filename:     'calculation-of-payment.pdf',
-    image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { scale: 4 },
-    jsPDF:        { 
-      unit: 'px', 
-      format: [1200, 9900], 
-      orientation: 'portrait',
-      pagebreak: { mode: 'avoid-all', before: '.break' }
-    }
-  };
+// $('.save').click(function() {
+//   var element = document.getElementById('result');
+//   var opt = {
+//     filename:     'calculation-of-payment.pdf',
+//     image:        { type: 'jpeg', quality: 0.98 },
+//     html2canvas:  { scale: 4 },
+//     jsPDF:        { 
+//       unit: 'px', 
+//       format: [1200, 9900], 
+//       orientation: 'portrait',
+//       pagebreak: { mode: 'avoid-all', before: '.break' }
+//     }
+//   };
   
-  html2pdf().from(element).set(opt).save();
+//   html2pdf().from(element).set(opt).save();
   
-  html2canvas(element).then(function(canvas) {
-    if (canvas) {
-      console.log('Canvas generated successfully!');
-      var imgData = canvas.toDataURL('image/png');
-      var img = document.createElement('img');
-      img.src = imgData;
-      document.body.appendChild(img);
-    } else {
-      console.log('Error generating canvas!');
-    }
-  });
-});
+//   html2canvas(element).then(function(canvas) {
+//     if (canvas) {
+//       console.log('Canvas generated successfully!');
+//       var imgData = canvas.toDataURL('image/png');
+//       var img = document.createElement('img');
+//       img.src = imgData;
+//       document.body.appendChild(img);
+//     } else {
+//       console.log('Error generating canvas!');
+//     }
+//   });
+// });
 
 
 
