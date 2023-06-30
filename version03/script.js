@@ -235,22 +235,59 @@ $(".restart").click(function() {
   }, 150);
 });
 
-
 //save button
-
 $('.save').click(function() {
   var element = document.getElementById('result');
-  
+
   html2canvas(element).then(function(canvas) {
     if (canvas) {
       console.log('Canvas generated successfully!');
-      var imgData = canvas.toDataURL('image/png');
-      var link = document.createElement('a');
-      link.download = 'calculation-of-payment.png';
-      link.href = imgData;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      canvas.toBlob(function(blob) {
+        var reader = new FileReader();
+        reader.onloadend = function() {
+          var imgArrayBuffer = reader.result;
+          // Now you have the image data as an ArrayBuffer (imgArrayBuffer)
+          console.log('Image data as ArrayBuffer:', imgArrayBuffer);
+
+          // Use the pdf-lib library to embed the image into a PDF document
+          const { PDFDocument, rgb, StandardFonts } = PDFLib;
+
+          // Create a new PDF document
+          const createPDF = async () => {
+            const pdfDoc = await PDFDocument.create();
+            const page = pdfDoc.addPage();
+            
+            // Embed the image into the PDF document
+            const pngImage = await pdfDoc.embedPng(imgArrayBuffer);
+            const pngDims = pngImage.scale(0.3)
+
+            page.drawImage(pngImage, {
+              x: page.getWidth() / 2 - pngDims.width / 2,
+              y: page.getHeight() / 2 - pngDims.height /2,
+              width: pngDims.width,
+              height: pngDims.height,
+            })
+            
+            // Generate the PDF file as an ArrayBuffer
+            const pdfBytes = await pdfDoc.save();
+
+            // Create a Blob from the ArrayBuffer
+            const pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' });
+
+            // Create a download link and trigger the download
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(pdfBlob);
+            link.download = 'payment_calculation.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          };
+
+          // Call the function to create the PDF document
+          createPDF();
+        };
+        reader.readAsArrayBuffer(blob);
+      });
     } else {
       console.log('Error generating canvas!');
     }
