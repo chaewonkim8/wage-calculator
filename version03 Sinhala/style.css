@@ -1,0 +1,310 @@
+/*custom font*/
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+/*basic reset*/
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	height: 100%;
+	/*Image only BG fallback*/
+
+	/*background = gradient + image pattern combo*/
+	background:
+		linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
+}
+
+body {
+	font-family: arial;
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
+/*cover page styles */
+
+.cover-image {
+	height: auto;
+	display: block;
+	margin: auto;
+	border-radius: 25px !important;
+	padding: 20px !important;
+	box-sizing: border-box;
+	max-width: 95%;
+	width: auto;
+}
+
+/*
+.cover-image {
+	height: auto;
+	display: block;
+	margin: auto;
+	border-radius: 1rem !important;
+	padding: 20px !important;
+	box-sizing: border-box;
+	max-width: 100%;
+  }
+*/
+
+/*form styles*/
+#msform {
+	width: 100%;
+	margin: 50px auto;
+	/*text-align: center;*/
+	position: relative;
+}
+
+#msform fieldset {
+	background: white;
+	border: 0 none;
+	border-radius: 9px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0 10%;
+
+	/*stacking fieldsets above each other*/
+	position: relative;
+}
+
+/*first fielset style */
+#start_date_label {
+	/*display: inline-block;*/
+	/*width: 80px;*/
+	text-align: left !important;
+	font-family: arial;
+	color: #06090b;
+	font-size: 11 px;
+	margin-bottom: 5px;
+}
+
+#end_date_label {
+	/*display: inline-block;*/
+	/*width: 80px;*/
+	text-align: left !important;
+	font-family: arial;
+	color: #06090b;
+	font-size: 11 px;
+	margin-bottom: 5px;
+}
+
+p.label {
+	/* Your styles here */
+	font-weight: medium;
+	font-size: 14px;
+	text-align: left;
+	margin-bottom: 5px;
+	margin-top: 10px;
+}
+
+/* result page style */
+
+hr {
+	width: 80%;
+	margin: 0 auto;
+	border-top: 1px transparent black !important;
+  }
+
+.text:before {
+	text-decoration: none;
+	font-weight: bolder;
+	content: attr(data-before) "\00a0:\00a0";
+	/* \00a0 represents a non-breaking space */
+	display: block;
+	font-size: 12px;
+	text-align: left;
+	margin-bottom: 5px;
+}
+
+p.text {
+	/* Your styles here */
+	font-weight: lighter;
+	font-size: 12px;
+	text-align: left;
+	margin-bottom: 18px;
+}
+
+p.formula {
+	/* Your styles here */
+	font-weight: lighter;
+	font-style: italic;
+	font-size: 12px;
+	text-align: left;
+	margin-top: 0;
+	margin-bottom: 30px;
+	line-height: 0;
+	color:#666
+}
+
+.small-italic-message {
+	white-space: pre-line;
+	/*font-style: italic;
+	color: gray;*/
+}
+
+/* emphasized result 
+#result_long_service_payment {
+	text-decoration: underline;
+	font-weight: bolder;
+	font-size: 12px;
+	text-align: left;
+	margin-bottom: 18px;
+}
+*/
+
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+
+/*inputs*/
+#msform input,
+#msform textarea {
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: montserrat;
+	color: #2C3E50;
+	font-size: 13px;
+}
+
+/*buttons*/
+
+/*
+#msform .action-button {
+    width: 100px;
+    background: #9B59B6;
+    color: white;
+    border: 0 none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 12px 24px !important;
+    margin: 10px 5px;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center !important;
+}*/
+
+
+#msform .action-button {
+	width: 100px;
+	background: #9B59B6;
+	font-weight: bold;
+	color: #F5F5F5;
+	border: 0 none;
+	border-radius: 6px;
+	cursor: pointer;
+	padding: 12px;
+	margin: 10px 5px;
+	text-decoration: none;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+}
+
+#msform .action-button:hover,
+#msform .action-button:focus {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #9B59B6;
+}
+
+/*front-page style*/
+fieldset.front-page h2.fs-title {
+	font-size: 20px;
+	color: #2C3E50;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+fieldset.front-page h3.fs-subtitle {
+	font-size: 13px;
+	margin-bottom: 18px;
+	color: #666;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+	text-align: center;
+}
+
+fieldset.front-page {
+	text-align: center;
+}
+
+/*headings*/
+.fs-title {
+	font-size: 20px;
+	/*text-transform: uppercase;*/
+	color: #2C3E50;
+	margin-bottom: 10px;
+}
+
+.fs-subtitle {
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 1.4;
+	color: #666;
+	margin-bottom: 20px;
+}
+
+/*progressbar*/
+#progressbar {
+	margin-bottom: 38px;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+	text-align: center;
+}
+
+#progressbar li {
+	list-style-type: none;
+	color: white;
+	/*text-transform: uppercase;*/
+	font-size: 9px;
+	width: 25%;
+	float: left;
+	position: relative;
+}
+
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+	width: 20px;
+	line-height: 20px;
+	display: block;
+	font-size: 10px;
+	color: #333;
+	background: white;
+	border-radius: 3px;
+	margin: 0 auto 5px auto;
+}
+
+/*progressbar connectors*/
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: white;
+	position: absolute;
+	left: -50%;
+	top: 9px;
+	z-index: -1;
+	/*put it behind the numbers*/
+}
+
+#progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none;
+}
+
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,
+#progressbar li.active:after {
+	background: #9B59B6;
+	color: white;
+}
