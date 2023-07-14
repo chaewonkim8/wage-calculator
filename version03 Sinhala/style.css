@@ -193,14 +193,14 @@ p.formula {
 
 
 #msform .action-button {
-	width: 100px;
+	width: 30%;
 	background: #9B59B6;
 	font-weight: bold;
 	color: #F5F5F5;
 	border: 0 none;
 	border-radius: 6px;
 	cursor: pointer;
-	padding: 12px;
+	padding: 1%;
 	margin: 10px 5px;
 	text-decoration: none;
 	font-size: 12px;
