@@ -13,7 +13,7 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hitung Gaji Bersih</title>
+  <title>Kalkulator Pembayaran</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <!--include jspdf library-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
@@ -30,8 +30,8 @@
   <form id="msform">
     <!-- progressbar -->
     <ul id="progressbar">
-      <li class="active"> Langkah 1</li>
-      <li>Periode Waktu</li>
+      <li class="active"> Pengantar</li>
+      <li>Tanggal Kerja</li>
       <li>Gaji Bulanan</li>
       <li>Hasil</li>
     </ul>
@@ -40,62 +40,62 @@
       <img
         src="https://softr-prod.imgix.net/applications/23625770-21f6-440f-8cf0-a419512ce950/assets/e1f59c17-951a-4e58-ad75-76e67001d905.bin"
         alt="" class="cover-image">
-      <h2 class="fs-title">Kalkulator Gaji Bersih</h2>
-      <h3 class="fs-subtitle">Hitung gaji bersih Anda sesuai dengan standar internasional.</h3>
-      <input type="button" name="next" class="next action-button" value="Mulai" />
+      <h2 class="fs-title">Kalkulator Pekerja</h2>
+      <h3 class="fs-subtitle">Hitung pembayaran layanan panjang Anda, berdasarkan hukum tenaga kerja di Hong Kong.</h3>
+      <input type="button" name="next" class="next action-button" value="Mulai Sekarang" />
     </fieldset>
     <!-- fieldsets -->
     <fieldset class="first-fieldset">
-      <h2 class="fs-title">Periode Waktu</h2>
-      <h3 class="fs-subtitle">Tentukan periode waktu penghitungan gaji bersih</h3>
+      <h2 class="fs-title">Tanggal Kerja</h2>
+      <h3 class="fs-subtitle">Langkah 1: Beritahu kami durasi kerja Anda</h3>
       <div id="start_date_label">
-        <p class="label">Tanggal Mulai: </p>
+        <p class="label">Tanggal Mulai: </p> 
       </div>
       <input type="date" id="start_date" name="start_date" required />
       <br />
       <div id="end_date_label">
-        <p class="label">Tanggal Selesai: </p>
+        <p class = "label">Tanggal Selesai: </p>
       </div>
       <input type="date" id="end_date" name="end_date" required />
       <br />
-      <input type="button" name="previous" class="previous action-button" value="Kembali" />
+      <input type="button" name="previous" class="previous action-button" value="Sebelumnya" />
       <input type="button" name="next" class="next action-button" value="Selanjutnya" />
     </fieldset>
 
     <fieldset class="second-fieldset">
       <h2 class="fs-title">Gaji Bulanan</h2>
-      <h3 class="fs-subtitle">Masukkan gaji bulanan Anda untuk perhitungan</h3>
+      <h3 class="fs-subtitle">Langkah 2: Beritahu kami gaji bulanan Anda</h3>
       <input type="number" id="monthly_wage" name="monthly_wage" placeholder="Gaji Bulanan" required />
-      <input type="button" name="previous" class="previous action-button" value="Kembali" />
+      <input type="button" name="previous" class="previous action-button" value="Sebelumnya" />
       <input type="button" name="next" class="next action-button" value="Selanjutnya" />
     </fieldset>
 
     <fieldset class="result-page" id="result">
       <br>
-      <h2 class="fs-title">Hasil Perhitungan Gaji Bersih</h2>
-      <h3 class="fs-subtitle">Hitung gaji bersih Anda sesuai dengan standar internasional</h3>
+      <h2 class="fs-title">Perhitungan Pembayaran</h2>
+      <h3 class="fs-subtitle">Berdasarkan hukum tenaga kerja di Hong Kong</h3>
       <p class="text" id="result_total_payment"><strong>Total Pembayaran:</strong><br></p>
       <br>
       <hr style="width:100%; margin: 0 auto; border-top: 1px; margin-bottom: 10px solid black;">
       <br>
-      <h2 class="fs-title"><br>Detail Informasi</h2>
-      <h2 class="fs-subtitle">Hitung jumlah yang diberikan sebagai kompensasi untuk informasi yang diberikan</h2>
-      <p class="text" id="result_monthly_wage"><strong>Gaji Bulanan:</strong><br></p>
+      <h2 class="fs-title"><br>Informasi Detail</h2>
+      <h2 class="fs-subtitle">Dihitung berdasarkan informasi Anda</h2>
+      <p class="text" id="result_monthly_wage"><strong>Gaji Bulan Terakhir:</strong><br></p>
       <p class="text" id="result_start_date"><strong>Tanggal Mulai:</strong><br></p>
       <p class="text" id="result_end_date"><strong>Tanggal Selesai:</strong><br></p>
       <hr style="width:95%; margin: 0 auto; border-top: 1px; margin-bottom: 10px transparent black;">
       <br>
-      <p class="text" id="result_days_of_service"><strong>Jumlah Hari Bekerja:</strong><br></p>
-      <p class="text" id="result_reckonable_years"><strong>Tahun yang Dihitung:</strong><br></p>
-      <p class="text" id="result_days_incomplete_year"><strong>Jumlah Hari Tahun Tidak Lengkap:</strong><br></p>
+      <p class="text" id="result_days_of_service"><strong>Hari Layanan:</strong><br></p>
+      <p class="text" id="result_reckonable_years"><strong>Tahun Layanan yang Dihitung:</strong><br></p>
+      <p class="text" id="result_days_incomplete_year"><strong>Hari dalam Tahun Tidak Lengkap:</strong><br></p>
       <hr style="width:95%; margin: 0 auto; border-top: 1px; margin-bottom: 10px transparent black;">
       <br>
-      <p class="text" id="result_formula_final"><strong>Hasil Akhir:</strong></p>
+      <p class="text" id="result_formula_final"><strong>Formula Akhir:</strong></p>
       <p class="formula" id="formula_final">:</p>
       <p class="text" id="result_total_payment_detail"><strong>Total Pembayaran:</strong><br></p>
       </p>
       <p class="break"></p>
-      <input type="button" name="restart" class="restart action-button" value="Mulai Ulang" data-html2canvas-ignore="true"/>
+      <input type="button" name="restart" class="restart action-button" value="Mulai Lagi" data-html2canvas-ignore="true"/>
       <input type="button" name="save" class="save action-button" value="Simpan Hasil" data-html2canvas-ignore="true"/>
       <!--hide the buttons in screen capture by adding data-html2canvas-ignore="true" -->
     </fieldset>
