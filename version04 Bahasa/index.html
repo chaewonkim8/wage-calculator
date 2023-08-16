@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2WGEWC6S6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-W2WGEWC6S6');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hitung Gaji Bersih</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!--include jspdf library-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+  <!-- Include the html2pdf.js script using CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <!-- include the pdf-lib library using cdn -->
+  <!-- <script src="https://unpkg.com/pdf-lib@1.4.0/dist/pdf-lib.min.js"></script> -->
+  <script src="https://unpkg.com/pdf-lib@1.4.0"></script>
+  <script src="https://unpkg.com/downloadjs@1.4.7"></script>
+</head>
+
+<body>
+  <!-- multistep form -->
+  <form id="msform">
+    <!-- progressbar -->
+    <ul id="progressbar">
+      <li class="active"> Langkah 1</li>
+      <li>Periode Waktu</li>
+      <li>Gaji Bulanan</li>
+      <li>Hasil</li>
+    </ul>
+    <!--front page fieldset-->
+    <fieldset class="front-page">
+      <img
+        src="https://softr-prod.imgix.net/applications/23625770-21f6-440f-8cf0-a419512ce950/assets/e1f59c17-951a-4e58-ad75-76e67001d905.bin"
+        alt="" class="cover-image">
+      <h2 class="fs-title">Kalkulator Gaji Bersih</h2>
+      <h3 class="fs-subtitle">Hitung gaji bersih Anda sesuai dengan standar internasional.</h3>
+      <input type="button" name="next" class="next action-button" value="Mulai" />
+    </fieldset>
+    <!-- fieldsets -->
+    <fieldset class="first-fieldset">
+      <h2 class="fs-title">Periode Waktu</h2>
+      <h3 class="fs-subtitle">Tentukan periode waktu penghitungan gaji bersih</h3>
+      <div id="start_date_label">
+        <p class="label">Tanggal Mulai: </p>
+      </div>
+      <input type="date" id="start_date" name="start_date" required />
+      <br />
+      <div id="end_date_label">
+        <p class="label">Tanggal Selesai: </p>
+      </div>
+      <input type="date" id="end_date" name="end_date" required />
+      <br />
+      <input type="button" name="previous" class="previous action-button" value="Kembali" />
+      <input type="button" name="next" class="next action-button" value="Selanjutnya" />
+    </fieldset>
+
+    <fieldset class="second-fieldset">
+      <h2 class="fs-title">Gaji Bulanan</h2>
+      <h3 class="fs-subtitle">Masukkan gaji bulanan Anda untuk perhitungan</h3>
+      <input type="number" id="monthly_wage" name="monthly_wage" placeholder="Gaji Bulanan" required />
+      <input type="button" name="previous" class="previous action-button" value="Kembali" />
+      <input type="button" name="next" class="next action-button" value="Selanjutnya" />
+    </fieldset>
+
+    <fieldset class="result-page" id="result">
+      <br>
+      <h2 class="fs-title">Hasil Perhitungan Gaji Bersih</h2>
+      <h3 class="fs-subtitle">Hitung gaji bersih Anda sesuai dengan standar internasional</h3>
+      <p class="text" id="result_total_payment"><strong>Total Pembayaran:</strong><br></p>
+      <br>
+      <hr style="width:100%; margin: 0 auto; border-top: 1px; margin-bottom: 10px solid black;">
+      <br>
+      <h2 class="fs-title"><br>Detail Informasi</h2>
+      <h2 class="fs-subtitle">Hitung jumlah yang diberikan sebagai kompensasi untuk informasi yang diberikan</h2>
+      <p class="text" id="result_monthly_wage"><strong>Gaji Bulanan:</strong><br></p>
+      <p class="text" id="result_start_date"><strong>Tanggal Mulai:</strong><br></p>
+      <p class="text" id="result_end_date"><strong>Tanggal Selesai:</strong><br></p>
+      <hr style="width:95%; margin: 0 auto; border-top: 1px; margin-bottom: 10px transparent black;">
+      <br>
+      <p class="text" id="result_days_of_service"><strong>Jumlah Hari Bekerja:</strong><br></p>
+      <p class="text" id="result_reckonable_years"><strong>Tahun yang Dihitung:</strong><br></p>
+      <p class="text" id="result_days_incomplete_year"><strong>Jumlah Hari Tahun Tidak Lengkap:</strong><br></p>
+      <hr style="width:95%; margin: 0 auto; border-top: 1px; margin-bottom: 10px transparent black;">
+      <br>
+      <p class="text" id="result_formula_final"><strong>Hasil Akhir:</strong></p>
+      <p class="formula" id="formula_final">:</p>
+      <p class="text" id="result_total_payment_detail"><strong>Total Pembayaran:</strong><br></p>
+      </p>
+      <p class="break"></p>
+      <input type="button" name="restart" class="restart action-button" value="Mulai Ulang" data-html2canvas-ignore="true"/>
+      <input type="button" name="save" class="save action-button" value="Simpan Hasil" data-html2canvas-ignore="true"/>
+      <!--hide the buttons in screen capture by adding data-html2canvas-ignore="true" -->
+    </fieldset>
+  </form>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+</body>
+
+</html>
