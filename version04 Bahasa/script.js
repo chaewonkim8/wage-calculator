@@ -192,6 +192,14 @@ $(".next").click(function () {
   var current_fs = $(this).parent();
   var next_fs = $(this).parent().next();
 
+  // If the 'next' button is clicke on the "front-page" fieldset, track the click event using Google Analytics
+  if (current_fs.hasClass("front-page")) {
+    gtag('event', 'button_click', {
+      'event_category': 'next_button_front_page',
+      'event_label': 'Next button clicked on front page'
+    });
+  }
+
   animateForm(current_fs, next_fs);
 });
 
@@ -240,6 +248,12 @@ $(".restart").click(function() {
 //save button
 $('.save').click(function() {
   var element = document.getElementById('result');
+
+  // Track the click event using Google Analytics
+  gtag('event', 'button_click', {
+    'event_category': 'save_button',
+    'event_label': 'Save button clicked'
+  });
 
   html2canvas(element).then(function(canvas) {
     if (canvas) {
