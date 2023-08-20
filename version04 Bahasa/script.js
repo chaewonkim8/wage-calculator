@@ -194,7 +194,7 @@ $(".next").click(function () {
 
   // If the 'next' button is clicke on the "front-page" fieldset, track the click event using Google Analytics
   if (current_fs.hasClass("front-page")) {
-    gtag('event', 'button_click', {
+    gtag('event', 'click_start_now', {
       'event_category': 'next_button_front_page',
       'event_label': 'Next button clicked on front page'
     });
@@ -250,7 +250,7 @@ $('.save').click(function() {
   var element = document.getElementById('result');
 
   // Track the click event using Google Analytics
-  gtag('event', 'button_click', {
+  gtag('event', 'click_save_pdf', {
     'event_category': 'save_button',
     'event_label': 'Save button clicked'
   });
